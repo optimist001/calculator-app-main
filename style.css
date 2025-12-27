@@ -1,0 +1,176 @@
+/* google font for family league spartan */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+
+/* css global reset */
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html{
+    font-family: 'League Spartan', sans-serif;
+    font-size: 32px;
+}
+
+body{
+    max-width: 1440px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--very-dark-blue);
+}
+
+/* color variables */
+:root{
+    --very-dark-blue: hsl(222, 26%, 31%);
+    --dark-blue: hsl(223, 31%, 20%);
+    --dark-blue-keypad: hsl(223, 31%, 20%);
+    --dark-blue-screen: hsl(224, 36%, 15%);
+    --orange: hsl(6, 63%, 50%);
+    --light-grayish-orange: hsl(30, 25%, 89%);
+    --grayish-orange: hsl(28, 16%, 65%);
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-blue: hsl(221, 14%, 31%);
+    --grayish-blue: hsl(221, 14%, 25%);
+}
+
+.theme-one{
+    color-scheme: light;
+    --bg-color: var(--very-dark-blue);
+    --toggle-bg: var(--dark-blue);
+}
+
+.theme-two{
+    color-scheme: dark;
+    --bg-color: var(--dark-blue);
+    --toggle-bg: var(--orange);
+}
+
+.container{
+    max-width: 420px;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+header h1{
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+header .theme{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.display{
+    width: 100%;
+    min-height: 80px;
+    background: var(--dark-blue);
+    border-radius: 10px;
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+    text-align: end;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    color: var(--white);
+    font-size: 1.85rem;
+    overflow-x: auto;
+}
+
+.buttons{
+    width: 100%;
+    background: var(--dark-blue);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: .5rem;
+    gap: .75rem;
+}
+
+.buttons button{
+    width: 20%;
+    height: 60px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 10px;
+    font-size: .75rem;
+    cursor: pointer;
+    background: var(--light-grayish-orange);
+    color: var(--very-dark-blue);
+    box-shadow: 0px 4px var(--grayish-orange);
+    transition: all 0.2s ease;
+}
+
+.buttons button:active{
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.buttons button.del{
+    background: var(--very-dark-blue);
+    color: var(--white);
+    box-shadow: 0px 4px var(--grayish-blue);
+}
+
+.buttons button.span-two{
+    width: calc((100%/2) - .5rem);
+    background: var(--very-dark-blue);
+    color: var(--white);
+    box-shadow: 0px 4px var(--grayish-blue);
+}
+
+.buttons button.equal{
+    background: var(--orange);
+}
+
+@media screen and (width <= 500px) {
+
+    html{
+    font-size: 24px;
+}
+
+    .container{
+        max-width: 260px;
+    }
+    
+    .buttons{
+        padding: 1rem .5rem;
+        gap: .5rem;
+    }
+
+    .buttons button{
+        height: 40px;
+        font-size: .6rem;
+    }
+    
+}

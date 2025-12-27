@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="radio-group">
+        <input type="radio" name="radio-btn" id="theme1" checked>
+        <label for="theme1" id="theme1"></label>
+        <input type="radio" name="radio-btn" id="theme2">
+        <label for="theme2" id="theme2"></label>
+        <input type="radio" name="radio-btn" id="theme3">
+        <label for="theme3" id="theme3"></label>
+    </div>
+
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .radio-group{
+            width: 100%;
+            max-width: 80px;
+            min-height: 25px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #222;
+        }
+        .radio-group input{
+            display: none;
+        }
+        .radio-group label{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: transparent;
+            margin: 2.5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+        .radio-group #theme1:checked ~ #theme1{
+            background-color: orange;
+            transform: translateX(0);
+        }
+        .radio-group #theme2:checked ~ #theme2{
+            background-color: red;
+            transform: translateX(0);
+        }
+        .radio-group #theme3:checked ~ #theme3{
+            background-color: blue;
+            transform: translateX(0);
+        }
+    </style>
+    
+</body>
+</html>
