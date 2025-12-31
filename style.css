@@ -24,33 +24,49 @@ body{
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background: var(--very-dark-blue);
+    background: var(--main-bg);
 }
 
 /* color variables */
 :root{
-    --very-dark-blue: hsl(222, 26%, 31%);
-    --dark-blue: hsl(223, 31%, 20%);
-    --dark-blue-keypad: hsl(223, 31%, 20%);
-    --dark-blue-screen: hsl(224, 36%, 15%);
-    --orange: hsl(6, 63%, 50%);
-    --light-grayish-orange: hsl(30, 25%, 89%);
-    --grayish-orange: hsl(28, 16%, 65%);
+    --main-bg: hsl(222, 26%, 31%);
+    --keypad-bg: hsl(223, 31%, 20%);
+    --screen-bg: hsl(224, 36%, 15%);
+    --equal-key-shadow: hsl(6, 63%, 50%);
+    --equal-key-bg: hsl(6, 70%, 34%);
+    --key-bg: hsl(30, 25%, 89%);
+    --key-shadow: hsl(28, 16%, 65%);
     --white: hsl(0, 0%, 100%);
-    --light-grayish-blue: hsl(221, 14%, 31%);
+    --reset-key-bg: hsl(225, 21%, 49%);
+    --reset-key-shadow: hsl(224, 28%, 35%);
+    --text-color: hsl(221, 14%, 31%);
     --grayish-blue: hsl(221, 14%, 25%);
 }
 
-.theme-one{
-    color-scheme: light;
-    --bg-color: var(--very-dark-blue);
-    --toggle-bg: var(--dark-blue);
+body.theme-two{
+    --main-bg:hsl(0, 0%, 90%);
+    --keypad-bg:hsl(0, 5%, 81%);
+    --screen-bg:hsl(0, 0%, 93%);
+    --reset-key-bg:hsl(185, 42%, 37%);
+    --reset-key-shadow:hsl(185, 58%, 25%);
+    --equal-key-shadow:hsl(25, 98%, 40%);
+    --equal-key-bg:hsl(25, 99%, 27%);
+    --key-bg: hsl(45, 7%, 89%);
+    --key-shadow: hsl(35, 11%, 61%);
+    --text-color: hsl(60, 10%, 19%);
 }
 
-.theme-two{
-    color-scheme: dark;
-    --bg-color: var(--dark-blue);
-    --toggle-bg: var(--orange);
+body.theme-three{
+    --main-bg:hsl(268, 75%, 9%);
+    --keypad-bg:hsl(268, 71%, 12%);
+    --screen-bg:hsl(268, 71%, 12%);
+    --reset-key-bg:hsl(281, 89%, 26%);
+    --reset-key-bg:hsl(285, 91%, 52%);
+    --equal-key-bg:hsl(176, 100%, 44%);
+    --equal-key-shadow:hsl(177, 92%, 70%);
+    --key-bg: hsl(268, 47%, 21%);
+    --key-shadow: hsl(290, 70%, 36%);
+    --text-color: hsl(52, 100%, 62%);
 }
 
 .container{
@@ -83,6 +99,58 @@ header .theme{
     text-transform: uppercase;
 }
 
+.theme-switch{
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5px;
+    width: 60px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: var(--keypad-bg);
+}
+.toggle input{
+    display: none;
+}
+
+.toggle label{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 2.5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.toggle #theme1:checked ~ #theme1{
+    background-color: var(--equal-key-bg);
+    transform: translateX(0);
+}
+
+.toggle #theme1:hover,
+.toggle #theme2:hover,
+.toggle #theme3:hover{
+    background-color: var(--equal-key-shadow);
+}
+
+.toggle #theme2:checked ~ #theme2{
+    background-color: var(--equal-key-bg);
+    transform: translateX(0);
+}
+
+.toggle #theme3:checked ~ #theme3{
+    background-color: var(--equal-key-bg);
+    transform: translateX(0);
+}
+
 main{
     display: flex;
     flex-direction: column;
@@ -92,7 +160,7 @@ main{
 .display{
     width: 100%;
     min-height: 80px;
-    background: var(--dark-blue);
+    background: var(--keypad-bg);
     border-radius: 10px;
     display: flex;
     align-items: right;
@@ -107,7 +175,7 @@ main{
 
 .buttons{
     width: 100%;
-    background: var(--dark-blue);
+    background: var(--keypad-bg);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -125,32 +193,44 @@ main{
     border-radius: 10px;
     font-size: .75rem;
     cursor: pointer;
-    background: var(--light-grayish-orange);
-    color: var(--very-dark-blue);
-    box-shadow: 0px 4px var(--grayish-orange);
+    background: var(--key-bg);
+    color: var(--text-color);
+    box-shadow: 0px 4px var(--key-shadow);
     transition: all 0.2s ease;
 }
 
-.buttons button:active{
+.buttons button:active,
+.buttons button:hover{
     transform: translateY(4px);
+    background: var(--key-shadow);
     box-shadow: none;
 }
 
-.buttons button.del{
-    background: var(--very-dark-blue);
+.buttons button.del,
+.buttons button.span-two{
+    background: var(--reset-key-bg);
     color: var(--white);
-    box-shadow: 0px 4px var(--grayish-blue);
+    box-shadow: 0px 4px var(--reset-key-shadow);
+}
+
+.buttons button.del:hover,
+.buttons button.span-two:hover,
+.buttons button.del:active,
+.buttons button.span-two:active{
+    background: var(--reset-key-shadow);
 }
 
 .buttons button.span-two{
     width: calc((100%/2) - .5rem);
-    background: var(--very-dark-blue);
-    color: var(--white);
-    box-shadow: 0px 4px var(--grayish-blue);
 }
 
 .buttons button.equal{
-    background: var(--orange);
+    background: var(--equal-key-bg);
+    box-shadow: 0px 4px var(--equal-key-shadow);
+}
+
+.buttons button.equal:hover{
+    background: var(--equal-key-shadow);
 }
 
 @media screen and (width <= 500px) {

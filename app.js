@@ -1,6 +1,7 @@
 const display = document.querySelector(".display");
 const buttons = document.querySelectorAll("button");
 const specialChar = ["+", "-", "/", "*", "."];
+const themes = document.querySelectorAll('input[type="radio"]');
 
 let output = "";
 
@@ -15,7 +16,7 @@ const calculate = (btnvalue) => {
   } else if (btnvalue === "reset") {
     output = "";
     display.value = "";
-    // return;
+    return;
   } else {
     if (output === "" && specialChar.includes(btnvalue)) return;
     output += btnvalue;
@@ -28,3 +29,20 @@ buttons.forEach((button) => {
     calculate(e.target.dataset.value);
   });
 });
+
+themes.forEach((theme) => {
+  theme.addEventListener("change", () => {
+    if (themes[1].checked) {
+      document.body.classList.add("theme-two");
+    } else if (themes[2].checked) {
+      document.body.classList.add("theme-three");
+    } else {
+      document.body.classList.remove("theme-two");
+      document.body.classList.remove("theme-three");
+    }
+  });
+});
+
+// if ((themes[1].checked = true)) {
+//   document.body.classList.add("theme-two");
+// }
