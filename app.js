@@ -34,6 +34,7 @@ themes.forEach((theme) => {
   theme.addEventListener("change", () => {
     if (themes[1].checked) {
       document.body.classList.add("theme-two");
+      document.body.classList.remove("theme-three");
     } else if (themes[2].checked) {
       document.body.classList.add("theme-three");
     } else {
